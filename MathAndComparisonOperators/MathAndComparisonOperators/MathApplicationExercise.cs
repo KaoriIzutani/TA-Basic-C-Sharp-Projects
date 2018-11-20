@@ -4,7 +4,7 @@ namespace MathAndComparisonOperators
 {
     class MathApplicationExercise
     {
-        public static void Main(string[] args)
+        public static void NotMain(string[] args)
         {
             //1.
             Console.WriteLine("This multiplies whatever number you entered by 50.");
@@ -19,8 +19,7 @@ namespace MathAndComparisonOperators
             //2.
             Console.WriteLine("This adds whatever number you entered by 25.");
             Console.WriteLine("Enter a number up to 13 digits long: ");
-            string userInput2;
-            userInput2 = Console.ReadLine();
+            string userInput2 = Console.ReadLine();
             double Number1 = Convert.ToDouble(userInput2), Number2 = 25.00, result2;
 
             result2 = Number1 + Number2;

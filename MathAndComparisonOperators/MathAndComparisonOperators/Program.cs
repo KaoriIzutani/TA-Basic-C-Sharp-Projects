@@ -8,7 +8,7 @@ namespace MathAndComparisonOperators
 {
     class Program
     { 
-        static void NotMain(string[] args)
+        static void Main(string[] args)
     {
 
             //int difference = 10 - 5;
@@ -31,43 +31,42 @@ namespace MathAndComparisonOperators
             //Using Comparison Operators
 
             //int roomTemperature = 70;
-            //int currentTemperature = 70;
+            //int currentTemperature = 72;
 
-            ////bool isWarm = currentTemperature <= roomTemperature;
-            ////bool isWarm = currentTemperature == roomTemperature;//There's two equal 
+
+            //bool isWarm = currentTemperature <= roomTemperature;
+            //bool isWarm = currentTemperature == roomTemperature;//There's two equal 
             ////signs in this comparison operator. It's comparing the left and right sides,
             ////asking if the left side is exactly equal to the right side.
-            //bool isWarm = currentTemperature != roomTemperature;//This operator asks
-            //if currentTemperature is NOT = to roomTemperature
-
-
-
+            //bool isWarm = currentTemperature != roomTemperature;/*This operator asks
+            //if currentTemperature is NOT = to roomTemperature*/
             //Console.WriteLine(isWarm);
             //Console.ReadLine();
 
-            //string userInput;
-            //int intVal;
-            //double doubleVal;
+            //    string userInput;
+            //    int intVal;
+            //    double doubleVal;
 
-            //Console.Write("Enter integer value: ");
-            //userInput = Console.ReadLine();
-            ///*Converts to integer type*/
-            //intVal = Convert.ToInt32(userInput);
-            //Console.WriteLine("You entered {0}", intVal);
+            //    Console.Write("Enter integer value: ");
+            //    userInput = Console.ReadLine();
+            //    /*Converts to integer type*/
+            //    intVal = Convert.ToInt32(userInput);
+            //    Console.WriteLine("You entered {0}", intVal); /*The {0} is a placeholder or argument. The variable text  
+            //    (intVal in this example) gets written where the {0} is placed*/
 
-            //Console.Write("Enter double value: ");
-            //userInput = Console.ReadLine();
-            ////Converts to double type
-            //doubleVal = Convert.ToDouble(userInput);
-            //Console.WriteLine("You entered {0}", doubleVal);
-            //Console.ReadLine();
+            //    Console.Write("Enter double value: ");
+            //    userInput = Console.ReadLine();
+            //    //Converts to double type
+            //    doubleVal = Convert.ToDouble(userInput);
+            //    Console.WriteLine("You entered {0}", doubleVal);
+            //    Console.ReadLine();
 
-            double firstNumber = 14.40, secondNumber = 4.60, result;
+            //    double firstNumber = 14.40, secondNumber = 4.60, result;
 
-            //Multiplication operator
-            result = firstNumber * secondNumber;
-            Console.WriteLine("{0} * {1} = {2}", firstNumber, secondNumber, result);
-            Console.ReadLine();
+            //    //Multiplication operator
+            //    result = firstNumber * secondNumber;
+            //    Console.WriteLine("{0} * {1} = {2}", firstNumber, secondNumber, result);
+            //    Console.ReadLine();
         }
     }
 }
