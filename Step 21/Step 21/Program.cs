@@ -5,8 +5,8 @@ namespace Step_21 //Adds a layer of organization for your code. This is above "c
     //to organize code. C# code can get complicated and namespaces make it easier to remember where 
     //things are.
 {
-    class Program //An organized grouping of code. Also is used to define specific ways that the data 
-        //works together.
+    class Program /*An organized grouping of code. Also is used to define specific ways that the data 
+        works together.*/
     {
         static void Main() 
         {
