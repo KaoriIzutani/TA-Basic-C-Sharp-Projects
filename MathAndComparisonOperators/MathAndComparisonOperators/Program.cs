@@ -51,8 +51,8 @@ namespace MathAndComparisonOperators
             //    userInput = Console.ReadLine();
             //    /*Converts to integer type*/
             //    intVal = Convert.ToInt32(userInput);
-            //    Console.WriteLine("You entered {0}", intVal); /*The {0} is a placeholder or argument. The variable text  
-            //    (intVal in this example) gets written where the {0} is placed*/
+            //    Console.WriteLine("You entered {0}", intVal); /*The {0} is a placeholder or argument. 
+            //The variable text (intVal in this example) gets written where the {0} is placed*/
 
             //    Console.Write("Enter double value: ");
             //    userInput = Console.ReadLine();
