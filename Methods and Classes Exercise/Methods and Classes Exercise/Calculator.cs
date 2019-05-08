@@ -15,7 +15,8 @@ namespace Methods_and_Classes_Exercise
         public int x { get; set; }
         public int y { get; set; }
 
-        public static int Add(int x) /*Method #1*/
+        public static int Add(int x) /*Method #1* (When you set your method's parameters, you must specify the 
+            data type, such as int or string.*/
         {
             int y = 12;
             y = y + x;
