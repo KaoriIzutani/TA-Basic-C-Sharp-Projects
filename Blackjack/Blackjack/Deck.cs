@@ -11,9 +11,9 @@ namespace Blackjack
         public Deck()/*You're creating a constructor (a method that is called when an object is 
             created) here and naming it the same as your class, Deck*/
         {
-            Cards = new List<Card>(); /*Cards refers to the property of the class Deck. You don't need to name a var or 
-            give it a data type, because Cards is a property of the object or class. So far, this is an empty list or 
-            it's not substantiated yet.*/
+            Cards = new List<Card>(); /*Cards refers to the property of the class Deck. You don't need to name 
+            a var or give it a data type, because Cards is a property of the object or class. So far, this is an 
+            empty list or it's not substantiated yet.*/
             
             List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
             List<string> Faces = new List<string>()
