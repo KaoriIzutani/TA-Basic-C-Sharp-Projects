@@ -16,17 +16,32 @@ namespace Method_Drill_3
          *4. Call the method in the class, passing in the one or two numbers entered &
          * 
          *5. Try various combinations of numbers on the code, including having no second number.*/
-         
-         
+
         public static void Main(string[] args)
         {
             MathSubtract subtract = new MathSubtract();
             Console.WriteLine("Enter a number you want to subtract: ");
-            int j = Convert.ToInt32(Console.ReadLine());
+            int h = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter a second number (optional): ");
-            int k = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(j + " minus " + k + " equals " + subtract.Subtract(j, k));
-            Console.ReadLine();
+            string userInput = Console.ReadLine();
+            
+            if (userInput != "")
+            {
+                int i = Convert.ToInt32(userInput);
+                int result = MathSubtract.Subtract(h, i);
+                Console.WriteLine("{0} - 10 - {1} = {2}", h, i, result);
+            }
+
+            else
+            {
+                int result = MathSubtract.Subtract(h);
+                Console.WriteLine("{0} - 10 = {1}", h, result);
+            }
+
+         Console.ReadLine();
         }
+        
+
+        
     }
 }
