@@ -12,4 +12,6 @@ namespace Inheritance_Exercise
     {
         public int Id { get; set; }
     }
+
+    
 }
