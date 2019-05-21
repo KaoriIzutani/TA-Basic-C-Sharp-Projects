@@ -15,9 +15,9 @@ namespace Inheritance_Exercise
 
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
-            employee.FirstName = "Sample";
-            employee.LastName = " Student";
+            Employee employee = new Employee(); 
+            employee.FirstName = "Sample ";
+            employee.LastName = "Student";
             employee.SayName();
             Console.ReadLine();
         }
