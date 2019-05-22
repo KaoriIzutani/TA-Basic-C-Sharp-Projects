@@ -9,7 +9,7 @@ namespace Blackjack
    public abstract class Game /*If you create an abstract or base class, you can no longer instantiate an 
         object in your Main program from this class.*/
     {
-        public List<string> Players { get; set; }
+        public List<Player> Players { get; set; }
         public string Name { get; set; }
         public string Dealer { get; set; }
 
@@ -21,9 +21,9 @@ namespace Blackjack
         public virtual void ListPlayers() /*Void keyword does not return anything. In this instance, it prints 
             a list of players. A virtual method has implementation.*/
         {
-            foreach (string player in Players )
+            foreach (Player player in Players)
             {
-                Console.WriteLine(player);
+                Console.WriteLine(player.Name);
             }
         }
     }

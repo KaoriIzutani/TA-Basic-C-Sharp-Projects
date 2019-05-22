@@ -13,5 +13,19 @@ namespace Blackjack
         object's property.*/
         public int Name { get; set; }
         public bool isActivelyPlaying { get; set; }
+
+        public static Game operator+ (Game game, Player player) /*This is an instance of operator overloading. 
+            The syntax is the return type (Game), "operator+", then in your parameters, what are you adding together.*/
+
+        {
+            game.Players.Add(player); /*This method adds a player. Conversely, with the subtract operator overloading,
+            we're taking away a player.*/
+            return game; /*We want to affect the "game" object, so that's why we're returning "game".*/
+        }
+        public static Game operator- (Game game, Player player)
+        {
+            game.Players.Remove(player);
+            return game;
+        }
     }
 }

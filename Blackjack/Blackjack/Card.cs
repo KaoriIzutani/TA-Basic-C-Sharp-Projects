@@ -18,7 +18,8 @@ namespace Blackjack
             }
         
         public string Suit { get; set; } /*Here, you created a property of the Card class. Analogy of a class (design
-        for an object) vs object would be, a class is a recipe, while object is the food actually created, cooked and eaten. */
+        for an object) vs object would be, a class is a recipe, while object is the food actually created, cooked and 
+        eaten. */
         public string Face { get; set; }
     }
     }
