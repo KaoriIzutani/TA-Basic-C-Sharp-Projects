@@ -11,16 +11,37 @@ namespace Blackjack
         project.*/
     {
         
-            public Card()
-            {
-                Suit = "Spades";
-                Face = "Two";
-            }
+            
         
-        public string Suit { get; set; } /*Here, you created a property of the Card class. Analogy of a class (design
-        for an object) vs object would be, a class is a recipe, while object is the food actually created, cooked and 
-        eaten. */
+        public string Suit { get; set; } /*Here, you created a property of the Card class. Analogy of a class 
+        (design for an object) vs object would be, a class is a recipe, while object is the food actually 
+        created, cooked and eaten. */
         public string Face { get; set; }
+    }
+    /*Put your enums here, below where you set the properties*/
+
+    public enum Suit2
+    {
+        Clubs,
+        Diamonds = 9,
+        Hearts,
+        Spades
+    }
+
+    public enum Face2
+    { Two,
+      Three,
+      Four,
+      Five,
+      Six,
+      Seven,
+      Eight,
+      Nine,
+      Ten, 
+      Jack,
+      Queen,
+      King, 
+      Ace
     }
     }
     
