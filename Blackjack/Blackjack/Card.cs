@@ -13,22 +13,24 @@ namespace Blackjack
         
             
         
-        public Suit2 /*After creating the Suit2 enum, data type is no longer the generic "string".
-        Data type was updated to "Suit2"*/ Suit { get; set; } /*Here, you created a property of the Card class. 
+        public Suit2 /*After creating the Suit enum, data type is no longer the generic "string".
+        Data type was updated to "Suit2". You also need to update Face property to data type "Face2"*/ 
+        Suit { get; set; } /*Here, you created a property of the Card class. 
         Analogy of a class (design for an object) vs object would be, a class is a recipe, while object is the 
         food actually created, cooked and eaten. */
-        public string Face { get; set; }
+        public Face2 Face { get; set; }
     }
     public enum Suit2
     {
-        Clubs = 4, /*Like an array, this "Clubs" has an implicit value of 0. Then "Diamonds" is 1,
+        Clubs, /*Like an array, this "Clubs" has an implicit value of 0. Then "Diamonds" is 1,
         "Hearts" is 2,"Spades" is 3. You can change the value of the enums if you want.*/
-        Diamonds = 10,
+        Diamonds, 
         Hearts,
         Spades
     }
+   
 
-    public enum Face
+    public enum Face2
     {
         Two,
         Three,

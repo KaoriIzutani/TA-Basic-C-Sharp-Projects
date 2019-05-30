@@ -17,7 +17,13 @@ namespace Blackjack
 
             for (int i = 0; i < 13; i++) /*This loops through all the faces we created in the Card class.*/
             {
-                for (int j)
+                for (int j= 0; j < 4; j++) /*This loops through all the suits we created in the Card class.*/
+                {
+                    Card card = new Card();
+                    card.Face = (Face2)i;
+                    card.Suit = (Suit2)j;
+                    Cards.Add(card);
+                }
             }
             
            
@@ -30,10 +36,10 @@ namespace Blackjack
         //        //    card.Suit = suit; /*Assigns the card one of the four suits*/
         //        //    card.Face = face; /*Assigns the card one of 13 faces*/
         //        //    Cards.Add(card); /*Adds this card to the blank list called "Cards", that was created on top*/
-                
-        //        //}
-        //    }
-        }
+
+                    //        //}
+                    //    }
+            }
         public List<Card> Cards { get; set; } /*Here is where you set up the Cards property*/
 
         public void Shuffle(Deck deck, out int timesShuffled, int times = 2)
@@ -53,7 +59,7 @@ namespace Blackjack
                 }
                 deck.Cards = TempList;
             }
-            return deck;
+            
         }
 
     }
