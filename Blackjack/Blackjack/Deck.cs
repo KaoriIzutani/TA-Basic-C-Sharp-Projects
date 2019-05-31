@@ -14,27 +14,35 @@ namespace Blackjack
             Cards = new List<Card>(); /*Cards refers to the property of the class Deck. You don't need to name 
             a var or give it a data type, because Cards is a property of the object or class. So far, this is an 
             empty list or it's not substantiated yet.*/
-            
-            List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
-            List<string> Faces = new List<string>()
 
-            { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
-          
-        foreach (string face in Faces) /*Here, we're creating a nested foreach loop to loop through 4 times. There 
-                are 13 faces and 4 suits, so 13 x 4 = 52 cards to create.*/
+            for (int i = 0; i < 13; i++) /*This loops through all the faces we created in the Card class.*/
             {
-                foreach (string suit in Suits)
+                for (int j= 0; j < 4; j++) /*This loops through all the suits we created in the Card class.*/
                 {
-                    Card card = new Card(); /*Creates a new, blank card*/
-                    card.Suit = suit; /*Assigns the card one of the four suits*/
-                    card.Face = face; /*Assigns the card one of 13 faces*/
-                    Cards.Add(card); /*Adds this card to the blank list called "Cards", that was created on top*/
+                    Card card = new Card();
+                    card.Face = (Face2)i;
+                    card.Suit = (Suit2)j;
+                    Cards.Add(card);
                 }
             }
-        }
-        public List<Card> Cards { get; set; }
+            
+           
+        //foreach (string face in Faces) /*Here, we're creating a nested foreach loop to loop through 4 times. There 
+        //        are 13 faces and 4 suits, so 13 x 4 = 52 cards to create.*/
+        //    {
+        //        //foreach (string suit in Suits)
+        //        //{
+        //        //    Card card = new Card(); /*Creates a new, blank card*/
+        //        //    card.Suit = suit; /*Assigns the card one of the four suits*/
+        //        //    card.Face = face; /*Assigns the card one of 13 faces*/
+        //        //    Cards.Add(card); /*Adds this card to the blank list called "Cards", that was created on top*/
 
-        public static Deck Shuffle(Deck deck, out int timesShuffled, int times = 2)
+                    //        //}
+                    //    }
+            }
+        public List<Card> Cards { get; set; } /*Here is where you set up the Cards property*/
+
+        public void Shuffle(Deck deck, out int timesShuffled, int times = 2)
         {
             timesShuffled = 0;
             for (int i = 0; i < times; i++)
@@ -51,7 +59,7 @@ namespace Blackjack
                 }
                 deck.Cards = TempList;
             }
-            return deck;
+            
         }
 
     }
