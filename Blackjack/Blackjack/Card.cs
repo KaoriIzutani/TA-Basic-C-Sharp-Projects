@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-   public class Card /*This class was created by right clicking the project name in Solution Explorer-->Add-->
+   public struct Card /*This class was created by right clicking the project name in Solution Explorer-->Add-->
         Class. Follow the prompts. We named this class, Card, for this project. General good practice is to keep
         to one class per project.*/
     {
