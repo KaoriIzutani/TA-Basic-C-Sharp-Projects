@@ -25,17 +25,18 @@ namespace Blackjack
                     Cards.Add(card);
                 }
             }
-            
-           
-        //foreach (string face in Faces) /*Here, we're creating a nested foreach loop to loop through 4 times. There 
-        //        are 13 faces and 4 suits, so 13 x 4 = 52 cards to create.*/
-        //    {
-        //        //foreach (string suit in Suits)
-        //        //{
-        //        //    Card card = new Card(); /*Creates a new, blank card*/
-        //        //    card.Suit = suit; /*Assigns the card one of the four suits*/
-        //        //    card.Face = face; /*Assigns the card one of 13 faces*/
-        //        //    Cards.Add(card); /*Adds this card to the blank list called "Cards", that was created on top*/
+
+
+            //foreach (string face in Faces) /*Here, we're creating a nested foreach loop to loop through 4 times. There 
+            //        are 13 faces and 4 suits, so 13 x 4 = 52 cards to create.*/
+            //    {
+            //        //foreach (string suit in Suits)
+            //        //{
+            //        //    Card card = new Card(); /*Creates a new, blank card*/
+            //        //    card.Suit = suit; /*Assigns the card one of the four suits*/
+            //        //    card.Face = face; /*Assigns the card one of 13 faces*/
+            //    Cards.Add(card); /*Adds this card to the blank list called "Cards", that was 
+           // created on top*/
 
                     //        //}
                     //    }
