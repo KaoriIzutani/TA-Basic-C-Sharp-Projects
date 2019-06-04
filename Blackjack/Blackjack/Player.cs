@@ -8,14 +8,24 @@ namespace Blackjack
 {
    public class Player
     { 
+        /*Put your constructor here, at the top of your class*/
+        public Player (string name, int beginningBalance) /*Takes 2 arguments, name w/ string data type and 
+            beginningBalance with int data type*/
+        {
+            Hand = new List<Card>();
+            Name = name;
+            Balance = beginningBalance;
+           
+        }
         public List<Card>/*<T>*/Hand { get; set; } /*The use of generics comes into play here. What if the player 
         wants to play roulette or craps? These games don't have cards or a hand. We're trying to avoid 
         writing a new class, as we have created a lot of classes at this point (Step 130). To create a generic list, 
         instead of entering a data type or class, just enter T in the brackets.*/
         public int Balance { get; set; } /*Quick action: Typing "prop, then Tab, Tab", quickly sets up an 
         object's property.*/
-        public int Name { get; set; }
+        public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }
+        public bool Stay { get; set; }
 
         public static Game operator +(Game game, Player player) /*This is an instance of operator overloading. 
             The syntax is the return type (Game), "operator+", then in your parameters, what are you adding 
