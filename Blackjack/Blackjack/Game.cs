@@ -11,6 +11,8 @@ namespace Blackjack
     {
         public List<Player> Players { get; set; }
         public string Name { get; set; }
+        public Dictionary<Player, int> /*The dictionary takes what is called a key value pair.*/ 
+            Bets { get; set; } 
 
         public abstract void Play(); /*This is an abstract method, not a property. It looks confusing, because
         //it looks like you set up a property, but you're not. All this says is if any class inherits this

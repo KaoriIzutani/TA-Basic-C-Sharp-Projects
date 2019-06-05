@@ -12,55 +12,6 @@ namespace Blackjack
 
 
         {
-
-            Card card1 = new Card();
-            Card card2 = card1;
-            card1.Face = Face2.Two;
-            card2.Face = Face2.King;
-          
-           Console.WriteLine(card1.Face);/*How come the result of this was "King" and not "Two"? Because 
-           // when we assigned var card2 to card1, we didn't actually create a new object (aka assign a 
-           // separate block of memory or copy). What we did was give(aka reference) card2 the address to the
-           // memory location of card1. You are creating your own custom data type.*/
-
-           // /*An analogy would be instead of emailing your teacher a copy of your drill (instantiating a new 
-           //  * object), you put it up (reference with) on Google Drive, which is a shared cloud service.
-           //  * This is how classes (whether you created it yourself or it was pre-built into the C# framework
-           //  * library) operate in C#, by reference. If you want to make the "card1.Face" to show up as "Two", 
-           //  * then you need to change the class type to "struct" (as in "public struct" Card.*/
-          
-
-            int underlyingValue = (int)Suit2.Diamonds; /*We casted "Suit2.Diamonds" to an int in this example.
-            Or if you feel more comfortable, "Convert.ToInt32(Suit.Diamonds)" is another way to cast it in the 
-            same way.*/
-            Console.WriteLine(underlyingValue);
-
-            Console.WriteLine(card1.Face);
-            
-            //TwentyOneGame game = new TwentyOneGame();
-            //game.Players = new List<string>() { "Jesse", "Gary", "Todd" }; 
-            //game.ListPlayers();
-            //Console.ReadLine();
-            //List<Game> games = new List<Game>();
-            Game game = new TwentyOneGame(); /* Step 121. This instantiation does not throw an error. It's 
-             because of something called "polymorphism". A TwentyOneGame object can "morph" into another higher 
-             order object, "Game". By higher order, TwentyOneGame inherits from "Game". The purpose of polymorphism
-             is to incorporate several different objects (in this case, card games like poker) into the list, even
-             though they are technically different data types. Simply put, it's the ability of a class to change
-             or morph into in an inheriting class.*/
-
-
-            //Card card1 = new Card(); /*To peek under the hood of a class or object, highlight the class
-            //or object, right click and select "Go to Definition" (F12)*/
-            //Card card2 = card1; 
-            //card1.Face = Face2.Two;
-            //card2.Face = Face2.King;
-
-            ///* Console.WriteLine(card1.Face);*/ /*How come the result of this was "King" and not "Two"? Because 
-            // when we assigned var card2 to card1, we didn't actually create a new object (aka assign a 
-            // separate block of memory or copy). What we did was give(aka reference) card2 the address to the
-            // memory location of card1. You are creating your own custom data type.*/
-
             Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name.");
             string playerName = Console.ReadLine();
             Console.WriteLine("How much money did you bring today?");
@@ -92,16 +43,17 @@ namespace Blackjack
             Console.WriteLine("Feel free to look around the casino. Bye for now!");
             Console.Read();
 
-            //Card card1 = new Card();
-            //Card card2 = card1;
+
+            //Card card1 = new Card(); /*To peek under the hood of a class or object, highlight the class
+            //or object, right click and select "Go to Definition" (F12)*/
+            //Card card2 = card1; 
             //card1.Face = Face2.Two;
             //card2.Face = Face2.King;
 
-            //Console.WriteLine(card1.Face);/*How come the result of this was "King" and not "Two"? Because 
+            // Console.WriteLine(card1.Face);/*How come the result of this was "King" and not "Two"? Because 
             // when we assigned var card2 to card1, we didn't actually create a new object (aka assign a 
             // separate block of memory or copy). What we did was give(aka reference) card2 the address to the
             // memory location of card1. You are creating your own custom data type.*/
-
 
             // /*An analogy would be instead of emailing your teacher a copy of your drill (instantiating a new 
             //  * object), you put it up (reference with) on Google Drive, which is a shared cloud service.
@@ -109,12 +61,19 @@ namespace Blackjack
             //  * library) operate in C#, by reference. If you want to make the "card1.Face" to show up as "Two", 
             //  * then you need to change the class type to "struct" (as in "public struct" Card.*/
 
+
             //int underlyingValue = (int)Suit2.Diamonds; /*We casted "Suit2.Diamonds" to an int in this example.
             //Or if you feel more comfortable, "Convert.ToInt32(Suit.Diamonds)" is another way to cast it in the 
             //same way.*/
             //Console.WriteLine(underlyingValue);
 
-      
+            //Console.WriteLine(card1.Face);
+
+            //TwentyOneGame game = new TwentyOneGame();
+            //game.Players = new List<string>() { "Jesse", "Gary", "Todd" }; 
+            //game.ListPlayers();
+            //Console.ReadLine();
+            //List<Game> games = new List<Game>();
 
             Deck deck = new Deck(); /*This is how you instantiate your class.*/
 

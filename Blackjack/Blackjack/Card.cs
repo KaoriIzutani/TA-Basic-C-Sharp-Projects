@@ -17,6 +17,11 @@ namespace Blackjack
         Analogy of a class (design for an object) vs object would be, a class is a recipe, while object is the 
         food actually created, cooked and eaten. */
         public Face2 Face { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0} of {1}", Face, Suit);
+        }
     }
 
     /*Put your enums here, below where you set the properties*/
