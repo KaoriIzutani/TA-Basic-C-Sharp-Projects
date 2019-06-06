@@ -17,7 +17,8 @@ namespace Blackjack
             Balance = beginningBalance;
            
         }
-        public List<Card>/*<T>*/Hand { get; set; } /*The use of generics comes into play here. What if the player 
+        private List<Card> _hand = new List<Card>();
+        public List<Card>/*<T>*/Hand { get { return _hand; } set { _hand = value; } } /*The use of generics comes into play here. What if the player 
         wants to play roulette or craps? These games don't have cards or a hand. We're trying to avoid 
         writing a new class, as we have created a lot of classes at this point (Step 130). To create a generic 
         list, instead of entering a data type or class, just enter T in the brackets.*/

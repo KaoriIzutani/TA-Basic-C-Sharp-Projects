@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-   public class TwentyOneGame : Game /*This is how you inherit a class, indicated by the colon. This says that 
+    public class TwentyOneGame : Game /*This is how you inherit a class, indicated by the colon. This says that 
         TwentyOneGame is inheriting from the Game class. The purpose of inheriting a class is so you don't have 
         to repeat code in related classes.*/
     {
@@ -60,33 +60,35 @@ namespace Blackjack
                         }
                     }
                 }
+                Console.Write("Dealer: ");
+                Dealer.Deal(Dealer.Hand);
+                if (i == 1)
+                {
+                    bool blackJack = TwentyOneRules.CheckForBlackjack(Dealer.Hand);
+                    if (blackJack)
+                    {
+                        Console.WriteLine("Dealer has Blackjack! Everyone loses.");
+                        foreach (KeyValuePair<Player, int> entry in Bets)
+                        {
+                            Dealer.Balance += entry.Value;
+                        }
+                    }
+                }
+
             }
-            Console.Write("Dealer: ");
-            Dealer.Deal(Dealer.Hand);
-            //if (i == 1)
-            //    {
-            //        bool blackJack = TwentyOneRules.CheckForBlackjack(Dealer.Hand);
-            //        if (blackJack)
-            //        {
-            //            Console.WriteLine("Dealer has Blackjack! Everyone loses.");
-            //            foreach(KeyValuePair <Player, int> entry in Bets)
-            //            {
-            //                Dealer.Balance += entry.Value;
-            //            }
-            //        }
-            //    }
+
             foreach (Player player in Players)
             {
-                while(player.Stay)
+                while (player.Stay)
                 {
                     Console.WriteLine("Your cards are: ");
-                    //foreach(Card card in Player.Hand)
-                    //{
-                    //    Console.Write("{0} ", card.ToString());
-                    //}
+                    foreach (Card card in player.Hand)
+                    {
+                        Console.Write("{0} ", card.ToString());
+                    }
                     Console.WriteLine("\n\n Hit or Stay?"); /*"/n" creates a new line in the console.*/
                     string answer = Console.ReadLine().ToLower();
-                    if (answer =="stay")
+                    if (answer == "stay")
                     {
                         player.Stay = true;
                         break;
@@ -115,6 +117,8 @@ namespace Blackjack
 
                 }
             }
+
+
             Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
             Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
             while (!Dealer.Stay && !Dealer.isBusted)
@@ -144,9 +148,44 @@ namespace Blackjack
                  * by 2. The dealer in this case lost, so the dealer's balance gets deducted.*/
             }
             return;
-            /*6-4-19. On Step 148.*/
-        }
+
         
+
+            foreach (Player player in Players)
+            {
+                bool? playerWon = TwentyOneRules.CompareHands(player.Hand, Dealer.Hand); /*This question mark next to bool says
+                this can now accept null values*/
+                if (playerWon == null)
+                {
+                    Console.WriteLine("Push! No one wins.");
+                    player.Balance += Bets[player];
+                    
+                }
+                else if (playerWon == true)
+                {
+                    Console.WriteLine("{0} wins {1}", player.Name, Bets[player]);
+                    player.Balance += (Bets[player] * 2);
+                    Dealer.Balance -= Bets[player];
+                }
+                else
+                {
+                    Console.WriteLine("Dealer wins {0}!", Bets[player]);
+                    Dealer.Balance += Bets[player];
+                }
+                Console.WriteLine("Play again?");
+                string answer2 = Console.ReadLine().ToLower();
+                if (answer2 == "yes" || answer2 == "yeah" || answer2 == "y" || answer2 == "ya")
+                {
+                    player.isActivelyPlaying = true;
+                }
+
+                else
+                {
+                    player.isActivelyPlaying = false;
+                }
+            }
+            
+        }
 
         public override void ListPlayers()
         {
@@ -154,11 +193,13 @@ namespace Blackjack
             base.ListPlayers(); /*Here, I typed "public override ListPlayers" and it auto-filled 
             base.ListPlayers();. This is similar to what happens in the foreach loop you created in the
             Game class".*/
-           
+
         }
         public void WalkAway(Player player)
         {
             throw new NotImplementedException();
         }
+
     }
 }
+

@@ -65,15 +65,29 @@ namespace Blackjack
             hand totaling between 17 and 21, dealer has to stay.*/
         {
             int[] possibleHandValues = GetAllHandValues(Hand);
-            foreach(int value in possibleHandValues)
+            foreach (int value in possibleHandValues)
             {
                 if (value > 16 && value < 22)
                 {
                     return true;
-                   
+
                 }
             }
             return false;
+        }
+
+        public static bool? CompareHands(List<Card> PlayerHand, List<Card> DealerHand)
+        {
+            int[] playerResults = GetAllHandValues(PlayerHand);
+            int[] dealerResults = GetAllHandValues(DealerHand);
+
+            int playerScore = playerResults.Where(x => x < 22).Max(); /*This lambda expression calculates the highest possible score
+            without getting busted*/
+            int dealerScore = dealerResults.Where(x => x < 22).Max();
+
+            if (playerScore > dealerScore) return true;
+            else if (playerScore < dealerScore) return false;
+            else return null;
         }
             
             /*General rule of thumb when using a private access modifier is: you know a method or object is 
