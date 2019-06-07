@@ -30,13 +30,13 @@ namespace Blackjack
              though they are technically different data types. Simply put, it's the ability of a class to change or 
              morph into in an inheriting class.*/
                 
-                game += player;
+                game += player; /*Adding the player to the game*/
                 player.isActivelyPlaying = true;
                 while (player.isActivelyPlaying && player.Balance > 0)
                 {
                     game.Play();
                 }
-                game -= player;
+                game -= player; /*Remove the player from the game*/
                 Console.WriteLine("Thanks for playing!");
             }
             /*An else statement is unnecessary in this case after the if statement*/
@@ -114,15 +114,15 @@ namespace Blackjack
             //      * use more than one placeholder, like {1}, {2} etc.*/
 
             Console.ReadLine();
-            /*When debugging code, a quick way to remove all breakpoints is to hit Ctrl + Shift + F9.*/
+            /*Step 127: When debugging code, a quick way to remove all breakpoints is to hit Ctrl + Shift + F9.*/
 
             /*If you ever want to see if your program will run without running it, you can Build it instead
              * with Ctrl + Shift + B*/
+        
         }
 
 
 
-           
-        }
+                 
     }
-
+}

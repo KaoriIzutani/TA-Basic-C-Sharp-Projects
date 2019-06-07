@@ -34,13 +34,11 @@ namespace Blackjack
             result[0] = value;
             if (result.Length == 1) return result; /*If your if statement is just one line, you don't need
             to use the curly braces.*/
-            {
-                return result;
-            }
+            
             for (int i = 1; i < result.Length; i++) /*We're starting this for loop at 1, because "result" 
                 started at 0.*/
             {
-                value += (i * 10);
+                value += (i * 10); /*Shorthand of value = value + (i * 10)*/
                 result[i] = value;
             }
             return result;
@@ -81,8 +79,8 @@ namespace Blackjack
             int[] playerResults = GetAllHandValues(PlayerHand);
             int[] dealerResults = GetAllHandValues(DealerHand);
 
-            int playerScore = playerResults.Where(x => x < 22).Max(); /*This lambda expression calculates the highest possible score
-            without getting busted*/
+            int playerScore = playerResults.Where(x => x < 22).Max(); /*This lambda expression calculates the highest 
+            possible score without getting busted*/
             int dealerScore = dealerResults.Where(x => x < 22).Max();
 
             if (playerScore > dealerScore) return true;

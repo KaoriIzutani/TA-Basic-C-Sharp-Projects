@@ -13,7 +13,8 @@ namespace Blackjack
         private Dictionary<Player, int> _bets = new Dictionary<Player, int>();
         public List<Player> Players { get { return _players; } set { _players = value; } }
         public string Name { get; set; }
-        public Dictionary<Player, int> /*The dictionary takes what is called a key value pair.*/
+        public Dictionary<Player, int> /*The dictionary takes what is called a key value pair. The "key" in this case 
+            is "Player" and the "value" is the amount player has bet.*/
             Bets { get { return _bets; } set { _bets = value; } }
 
         public abstract void Play(); /*This is an abstract method, not a property. It looks confusing, because
