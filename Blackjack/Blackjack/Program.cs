@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO; /*This System.IO writes to a text file (with WriteAllText). You may be asked to do this sometimes 
+in real life work.*/
 
 namespace Blackjack
 {
@@ -12,6 +14,8 @@ namespace Blackjack
 
 
         {
+           // string text = File.ReadAllText(@"C:\Users\Student\Desktop\All Projects\C#\log.txt");
+
             Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name.");
             string playerName = Console.ReadLine();
             Console.WriteLine("How much money did you bring today?");
@@ -39,7 +43,7 @@ namespace Blackjack
                 game -= player; /*Remove the player from the game*/
                 Console.WriteLine("Thanks for playing!");
             }
-            /*An else statement is unnecessary in this case after the if statement*/
+            
             Console.WriteLine("Feel free to look around the casino. Bye for now!");
             Console.Read();
 
@@ -118,6 +122,13 @@ namespace Blackjack
 
             /*If you ever want to see if your program will run without running it, you can Build it instead
              * with Ctrl + Shift + B*/
+<<<<<<< Updated upstream
+=======
+
+            /*More debugging tricks. If you want to go through every line of code to help with understanding it, 
+             * put a breakpoint at the start of the program or class. Then use F11 (Step Into) to go through every
+             * part of the code.*/
+>>>>>>> Stashed changes
         
         }
 

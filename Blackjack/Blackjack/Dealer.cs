@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Blackjack
 {
@@ -17,9 +18,20 @@ namespace Blackjack
         {
             Hand.Add(Deck.Cards.First());/*"Add" is a built in method for lists. ".First" takes the first item 
             from that list.*/
-            Console.WriteLine(Deck.Cards.First().ToString() + "\n");
-            Deck.Cards.RemoveAt(0); /*"RemoveAt" is a method for lists, where you pass in an index where you
+            string card = string.Format(Deck.Cards.First().ToString() + "\n");
+            Console.WriteLine(card);
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\All Projects\C#\log.txt", true))
+            {
+                file.WriteLine(card);
+            } /*Once it reaches the end of this code, the memory manager cleans up or disposes this using 
+            statement. For tasks like append (attach to a file), you want to dispose after you're done with the
+            task, so you don't run out of memory.*/
+            /* This append task would be useful. For example, the casino manager wants to log all the cards that 
+             were drawn for today to see if the shuffle method is working.*/
+
+                Deck.Cards.RemoveAt(0); /*"RemoveAt" is a method for lists, where you pass in an index where you
             want to remove something.*/
+
 
             /*General rule of thumb when to inherit a class vs creating a property in a class is to use 
              * the "is/has" relationship. 21 or Blackjack is a game, so you inherit Game into TwentyOneGame.
