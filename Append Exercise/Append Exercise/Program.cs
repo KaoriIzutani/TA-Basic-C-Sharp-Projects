@@ -9,6 +9,12 @@ namespace Append_Exercise
 {
     class Program
     {
+        /*1. Ask a user for a number.
+
+          2. Log that number to a text file.
+
+          3. Print the text file back to the user.*/
+        
         static void Main(string[] args)
         {
            Console.WriteLine("Pick a number: ");
