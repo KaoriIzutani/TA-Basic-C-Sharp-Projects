@@ -11,7 +11,7 @@ namespace Append_Exercise
     {
         /*1. Ask a user for a number.
 
-          2. Log that number to a text file.
+          2. Log that number to a text file &
 
           3. Print the text file back to the user.*/
         
