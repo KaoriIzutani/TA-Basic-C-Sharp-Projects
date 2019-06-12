@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    public class TwentyOneGame : Game /*This is how you inherit a class, indicated by the colon. This says that 
-        TwentyOneGame is inheriting from the Game class. The purpose of inheriting a class is so you don't have 
-        to repeat code in related classes.*/
+   public class TwentyOneGame : Game /*This is how you inherit a class, indicated by the colon. This says that 
+        TwentyOneGame is inheriting from the Game class. The purpose of inheriting a class is so you don't have to 
+        repeat code in related classes.*/
     {
-        public TwentyOneDealer Dealer { get; set; } /*Moved the Dealer property from the Card to the
-        TwentyOneDealer class*/
+        public TwentyOneDealer Dealer { get; set; }
         public override void Play() /*The override keyword implements the abstract method you created in the 
             Game class.*/
         {
@@ -39,7 +38,8 @@ namespace Blackjack
                     return; /*Even though the Play method is void (where it doesn't return
                     anything), this is telling the compiler to end the method.*/
                 }
-                Bets[player] = bet; /*Creates a dictionary entry, with the player's name and amount they bet.*/
+                Bets[player] = bet; /* Step 143. Creates a dictionary entry, with the player's name and amount 
+                they bet.*/
             }
             for (int i = 0; i < 2; i++) /*Going through this for loop twice.*/
             {
@@ -56,7 +56,7 @@ namespace Blackjack
                         bool blackJack = TwentyOneRules.CheckForBlackjack(player.Hand);
                         if (blackJack)
                         {
-                            Console.WriteLine($"Blackjack! {player.Name} wins ${ Bets[player]}" );
+                            Console.WriteLine($"Blackjack! {player.Name} wins ${ Bets[player]}");
                             player.Balance += Convert.ToInt32((Bets[player] * 1.5 + Bets[player]));
                             /*This code says if the player won, he/she not only gets the original bet back,
                              * he/she also gets 1.5 times what was bet. */
@@ -76,34 +76,23 @@ namespace Blackjack
                         {
                             Dealer.Balance += entry.Value;
                         }
-<<<<<<< Updated upstream
-=======
-                        return;
->>>>>>> Stashed changes
                     }
+                    
                 }
-
+                
             }
-
             foreach (Player player in Players)
             {
-                while (!player.Stay) /*Make sure your logic says while the player is NOT (!) staying. Otherwise, you 
-                    won't hit this while loop after the dealer and player's cards are dealt.*/
+                while (!player.Stay) /*Make sure your logic says while the player is NOT (!) staying. 
+                        Otherwise, you won't hit this while loop after the dealer and player's cards are dealt.*/
                 {
                     Console.WriteLine("Your cards are: ");
                     foreach (Card card in player.Hand)
                     {
                         Console.Write("{0} ", card.ToString());
                     }
-<<<<<<< Updated upstream
                     Console.WriteLine("\n\n Hit or Stay?"); /*"/n" creates a new line in the console.*/
                     string answer = Console.ReadLine().ToLower();
-=======
-                    Console.WriteLine("\n\n Hit or Stay?"); /*"\n" creates a new line in the console.*/
-                    string answer = Console.ReadLine().ToLower();
-
-
->>>>>>> Stashed changes
                     if (answer == "stay")
                     {
                         player.Stay = true;
@@ -111,13 +100,9 @@ namespace Blackjack
                     }
                     else if (answer == "hit")
                     {
-                        Dealer.Deal(player.Hand);
+                        Dealer.Deal(player.Hand); /*Step 147*/
                     }
-<<<<<<< Updated upstream
                     bool busted = TwentyOneRules.IsBusted(player.Hand);
-=======
-                    bool busted = TwentyOneRules.IsBusted(player.Hand); /*Step 147*/
->>>>>>> Stashed changes
                     try
                     {
                         if (busted)
@@ -143,154 +128,77 @@ namespace Blackjack
                         Console.WriteLine(ex.Message);
                     }
                 }
-
-
+            }
+            Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
+            Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
+            while (!Dealer.Stay && !Dealer.isBusted)
+            {
+                Console.WriteLine("Dealer is hitting..");
+                Dealer.Deal(Dealer.Hand);
                 Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
                 Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
-                while (!Dealer.Stay && !Dealer.isBusted)
-<<<<<<< Updated upstream
-                {
-                    Console.WriteLine("Dealer is hitting..");
-                    Dealer.Deal(Dealer.Hand);
-                    Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
-                    Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
-                }
-                if (Dealer.Stay)
-                {
-                    Console.WriteLine("Dealer is staying.");
-                }
-                if (Dealer.isBusted)
-                {
-                    Console.WriteLine("Dealer busted!");
-                    foreach (KeyValuePair<Player, int> entry in Bets)
-                    {
-                        Console.WriteLine("{0} won {1}", entry.Key.Name, entry.Value); /*The "entry.Key.Name"
-=======
-                {
-                    Console.WriteLine("Dealer is hitting..");
-                    Dealer.Deal(Dealer.Hand);
-                    Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
-                    Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
-                }
-                if (Dealer.Stay)
-                {
-                    Console.WriteLine("Dealer is staying.");
-                }
-                if (Dealer.isBusted)
-                {
-                    Console.WriteLine("Dealer busted!");
-                    foreach (KeyValuePair<Player, int> entry in Bets)
-                    {
-                        Console.WriteLine($"{entry.Key.Name} won ${entry.Value} \n"); /*The "entry.Key.Name"
->>>>>>> Stashed changes
-                    and "entry.Value" is how to access the Dictionary's key value pairs.*/
-                        Players.Where(x => x.Name == entry.Key.Name).First().Balance += (entry.Value * 2);
-                        Dealer.Balance -= entry.Value;
-                    }
-                    /*This foreach loop goes through the Dictionary's key value pair where the name matches 
-                     * "entry.Key.Name". The "Where" lambda function makes a list. The .First() grabs the name, 
-                     * takes the player's balance and then it adds what the player bet, then multiplies it 
-                     * by 2. The dealer in this case lost, so the dealer's balance gets deducted.*/
-                    return;
-<<<<<<< Updated upstream
-                }
-
-
-                foreach (Player player2 in Players)
-                {
-                    bool? playerWon = TwentyOneRules.CompareHands(player.Hand, Dealer.Hand); /*This question mark next 
-                    to bool says this can now accept null values*/
-                    if (playerWon == null)
-                    {
-                        Console.WriteLine("Push! No one wins."); /*This means both hands have the same total. You don't
-                        win anything, but you don't lose anything either.*/
-                        player2.Balance += Bets[player];
-
-                    }
-                    else if (playerWon == true)
-                    {
-                        Console.WriteLine("{0} wins {1}", player.Name, Bets[player]);
-                        player2.Balance += (Bets[player] * 2);
-                        Dealer.Balance -= Bets[player];
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dealer wins {0}!", Bets[player]);
-                        Dealer.Balance += Bets[player];
-                    }
-                    Console.WriteLine("Play again?");
-                    string answer2 = Console.ReadLine().ToLower();
-                    if (answer2 == "yes" || answer2 == "yeah" || answer2 == "y" || answer2 == "ya")
-                    {
-                        player.isActivelyPlaying = true;
-                    }
-
-                    else
-                    {
-                        player.isActivelyPlaying = false;
-                    }
-                }
-
-=======
-                }
-
-
-                foreach (Player player2 in Players)
-                {
-                    bool? playerWon = TwentyOneRules.CompareHands(player.Hand, Dealer.Hand); /*This question mark next 
-                    to bool says this can now accept null values*/
-                    if (playerWon == null)
-                    {
-                        Console.WriteLine("Push! No one wins."); /*This means both hands have the same total. You don't
-                        win anything, but you don't lose anything either.*/
-                        player2.Balance += Bets[player];
-
-                    }
-                    else if (playerWon == true)
-                    {
-                        Console.WriteLine("{0} wins {1}!", player.Name, Bets[player]);
-                        player2.Balance += (Bets[player] * 2);
-                        Dealer.Balance -= Bets[player];
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dealer wins {0}!", Bets[player]);
-                        Dealer.Balance += Bets[player];
-                    }
-                    Console.WriteLine("Play again?");
-                    string answer2 = Console.ReadLine().ToLower();
-                    if (answer2 == "yes" || answer2 == "yeah" || answer2 == "y" || answer2 == "ya")
-                    {
-                        player.isActivelyPlaying = true;
-                        return; /*In a void method (for this program, Play), you have to put in "return" to 
-                        stop the void method. Otherwise, here if you answer "no", program will continue 
-                        playing, even though you said you want to quit.*/
-                    }
-
-                    else
-                    {
-                        player.isActivelyPlaying = false;
-                        return;
-                    }
-                }
-
->>>>>>> Stashed changes
             }
-        }
+            if (Dealer.Stay)
+            {
+                Console.WriteLine("Dealer is staying.");
+            }
+            if (Dealer.isBusted)
+            {
+                Console.WriteLine("Dealer busted!");
+                foreach (KeyValuePair<Player, int> entry in Bets)
+                {
+                    Console.WriteLine("{0} won {1}", entry.Key.Name, entry.Value);
+                    /*The "entry.Key.Name and "entry.Value" is how to access the Dictionary's 
+                     * key value pairs.*/
+                    Players.Where(x => x.Name == entry.Key.Name).First().Balance += (entry.Value * 2);
+                    Dealer.Balance -= entry.Value;
+                }
+                return;
+            }
+            foreach (Player player2 in Players) /*Step 148*/
+            {
+                bool? playerWon = TwentyOneRules.CompareHands(player2.Hand, Dealer.Hand); /*This question mark next 
+                    to bool says this can now accept null values*/
+                if (playerWon == null)
+                {
+                    Console.WriteLine("Push! No one wins."); /*This means both hands have the same total. You don't
+                        win anything, but you don't lose anything either.*/
+                    player2.Balance += Bets[player2];
 
+                }
+                else if (playerWon == true)
+                {
+                    Console.WriteLine("{0} wins {1}", player2.Name, Bets[player2]);
+                    player2.Balance += (Bets[player2] * 2);
+                    Dealer.Balance -= Bets[player2];
+                }
+                else
+                {
+                    Console.WriteLine("Dealer wins {0}!", Bets[player2]);
+                    Dealer.Balance += Bets[player2];
+                }
+                Console.WriteLine("Play again?");
+                string answer2 = Console.ReadLine().ToLower();
+                if (answer2 == "yes" || answer2 == "yeah" || answer2 == "y" || answer2 == "ya")
+                {
+                    player2.isActivelyPlaying = true;
+                }
+
+                else
+                {
+                    player2.isActivelyPlaying = false;
+                }
+            }
+
+        }
         public override void ListPlayers()
         {
             Console.WriteLine("21 Players: ");
             base.ListPlayers(); /*Here, I typed "public override ListPlayers" and it auto-filled 
-            base.ListPlayers();. This is similar to what happens in the foreach loop you created in the
+            "base.ListPlayers();. This is similar to what happens in the foreach loop you created in the
             Game class".*/
+            
 
         }
-        public void WalkAway(Player player)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
-
