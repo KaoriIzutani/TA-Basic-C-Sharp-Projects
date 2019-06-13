@@ -12,12 +12,10 @@ namespace Casino.Blackjack
         repeat code in related classes.*/
    
     {
+        public TwentyOneDealer Dealer { get; set; }
         public override void Play() /*The override keyword implements the abstract method you created in the 
             Game class.*/
         {
-<<<<<<< Updated upstream
-            throw new NotImplementedException();
-=======
             Dealer = new TwentyOneDealer(); /*Instantiating the dealer object.*/
             foreach (Player player in Players)
             {
@@ -194,7 +192,6 @@ namespace Casino.Blackjack
                 }
             }
 
->>>>>>> Stashed changes
         }
         public override void ListPlayers()
         {
